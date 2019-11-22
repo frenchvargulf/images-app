@@ -1,0 +1,155 @@
+
+/* Global styles and classes */
+
+body {
+  max-width: 100%;
+  position: relative;
+}
+
+.container {
+  max-width: 1000px;
+  height: 100vh;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  font-family: 'Montserrat', sans-serif;
+  margin: 0 auto;
+}
+
+img {
+  width: 200px;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+/* Containers */
+.images-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.uploader, .output, #list {
+  width: 100%;
+ 
+}
+
+.input {
+  width: 100%;
+  text-align: center;
+}
+
+
+.img-box {
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  justify-content: center;
+  
+}
+
+/* Button */
+button {
+  outline: none;
+  border: none;
+  width: 140px;
+  height: 40px;
+  border: 2px solid black;
+  margin: 20px 0;
+  background: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+button:hover {
+  background-color:rgba(0, 0, 0);
+  color: rgb(255,255,255)
+}
+
+/* Input */
+input[type="file"] {
+  outline: none;
+  border: none;
+  background-color: dodgerblue;
+  padding: 10px 0;
+}
+
+.inputfile {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+  z-index: -1;
+  left: -5000000000000;
+}
+
+.inputfile + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  text-transform: uppercase;
+  padding: 10px;
+  display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: red;
+}
+
+.inputfile + label {
+	cursor: pointer; 
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+/* Custom title */
+.title {
+  text-transform: uppercase;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+/* Media queries */
+@media (max-width: 960px) {
+  .img-box {
+    flex-direction: column;
+  }
+  img {
+    width: 100%;
+  }
+  .info-box {
+    max-width: 90%;
+    justify-content: flex-start;
+    padding-left: 25px;
+  }
+}
