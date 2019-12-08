@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import ImageRenderer from './components/ImageRenderer';
 import "./App.css";
 import EXIF from "exif-js";
-import { getBase, toDecimal } from './HelperFunctions'
+import { getBase, toDecimal } from './HelperFunctions';
+import MapWrapper from './components/Wrapper';
 
 class ImagesUploaderApp extends Component {
   constructor(props) {
@@ -113,8 +114,7 @@ class ImagesUploaderApp extends Component {
 
   // Get exif data
   getExifData(e, image) {
-
-      EXIF.getData(image.image, () => {
+    EXIF.getData(image.image, () => {
         let latitude = EXIF.getTag(image.image, "GPSLatitude");
         let longitude = EXIF.getTag(image.image, "GPSLongitude");
 
@@ -132,7 +132,7 @@ class ImagesUploaderApp extends Component {
         
         const newImageImage = newImg(image);
         this.updateState(newImageImage);
-      })
+    })
   }
 
   render() {
@@ -148,6 +148,7 @@ class ImagesUploaderApp extends Component {
               deleteImage={this.deleteImage} 
               getExifData={this.getExifData}
               />
+            <MapWrapper google={window.google} images={this.state.images} />
           </div>
         </div>
       </div>
